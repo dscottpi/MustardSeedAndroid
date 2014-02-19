@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.java.app.mustardseed"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.java.app.mustardseed.Splash"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.java.app.mustardseed.AudioHome"
+            android:label="Audio Content" >
+        </activity>
+        <activity
+            android:name="com.java.app.mustardseed.InsertSD"
+            android:label="@string/title_activity_insert_sd" >
+        </activity>
+        <activity
+            android:name="com.java.app.mustardseed.VideoHome"
+            android:label="@string/title_activity_video_home" >
+        </activity>
+        <activity
+            android:name="com.java.app.mustardseed.Home"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name=".VideoView"
+            android:label="Video View">
+        </activity>
+        <activity
+            android:name=".AudioPlay"
+            android:label="Audio Play">
+        </activity>
+
+    </application>
+
+</manifest>
