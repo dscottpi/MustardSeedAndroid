@@ -1,9 +1,16 @@
-package com.java.app.mustardseed;
+package com.java.app.mustardseed.pdf;
+
+
+import com.java.app.mustardseed.R;
 
 import net.sf.andpdf.pdfviewer.PdfViewerActivity;
 
 /**
  * Created by danscott on 18/02/2014.
+ *
+ * See PdfViewerActivity Android Project on Github to view source code
+ * of PdfViewerActivity.
+ *
  */
 public class PdfView extends PdfViewerActivity {
 

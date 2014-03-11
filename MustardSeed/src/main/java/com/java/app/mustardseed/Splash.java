@@ -1,31 +1,32 @@
 package com.java.app.mustardseed;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 
-public class Splash extends ActionBarActivity {
+public class Splash extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+        // Hide the action bar if the android version is recent enough to contain one.
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getActionBar().hide();
         }
 
         try {
-            //GO FULL screen
+            // Go full screen.
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -35,12 +36,6 @@ public class Splash extends ActionBarActivity {
 
 
         setContentView(R.layout.activity_splash);
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -75,7 +70,7 @@ public class Splash extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the com.java.app.mustardseed.AudioHome/Up button, so long
+        // automatically handle clicks on the com.java.app.mustardseed.audio.AudioHome/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
@@ -84,25 +79,12 @@ public class Splash extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
+    /*
+    Return true if there is external storage mounted, false otherwise.
      */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_splash, container, false);
-            return rootView;
-        }
+    public boolean SDCardIsMounted() {
+        return Environment.getExternalStorageState()
+                .equals(Environment.MEDIA_MOUNTED);
     }
 
-    public static boolean SDCardIsMounted() {
-        return Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED
-        );
-    }
 }

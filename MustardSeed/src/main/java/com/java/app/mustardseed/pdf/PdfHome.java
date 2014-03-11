@@ -1,4 +1,4 @@
-package com.java.app.mustardseed;
+package com.java.app.mustardseed.pdf;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.java.app.mustardseed.R;
 
 import net.sf.andpdf.pdfviewer.PdfViewerActivity;
 
@@ -49,8 +51,6 @@ public class PdfHome extends Activity {
 
         File file = Environment.getExternalStorageDirectory();
 
-
-
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,7 +78,17 @@ public class PdfHome extends Activity {
                 } else {
                     if (pdfist[i].getName().endsWith(".pdf")) {
                         pdfFile = new HashMap<String, String>();
-                        pdfFile.put("Title", pdfist[i].getName());
+
+                        /*
+                        Remove the .pdf from the title that
+                        appears on the screen.
+                         */
+                        String fileName = pdfist[i].getName();
+                        String[] fullTitle = fileName.split("\\.");
+                        System.out.println(fullTitle[0]);
+                        String title = fullTitle[0];
+
+                        pdfFile.put("Title", title);
                         pdfFiles.add(pdfFile);
                         adapter.notifyDataSetChanged();
                         String path = pdfist[i].getAbsolutePath();
@@ -89,5 +99,4 @@ public class PdfHome extends Activity {
             }
         }
     }
-
 }
