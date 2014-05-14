@@ -1,5 +1,6 @@
 package com.java.app.mustardseed;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -14,17 +15,72 @@ import android.os.Build;
 import android.widget.Button;
 
 public class Home extends ActionBarActivity {
+=======
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.java.app.mustardseed.audio.AudioHome;
+import com.java.app.mustardseed.pdf.PdfHome;
+import com.java.app.mustardseed.video.VideoHome;
+
+
+public class Home extends Activity {
+
+    private Button audio;
+    private Button video;
+    private Button text;
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+<<<<<<< HEAD
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+=======
+        text = (Button) findViewById(R.id.text_button);
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                        new Intent(Home.this, PdfHome.class)
+                );
+            }
+        });
+
+        audio = (Button) findViewById(R.id.audio_button);
+        audio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                        new Intent(Home.this, AudioHome.class)
+                );
+            }
+        });
+
+        video = (Button) findViewById(R.id.video_button);
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                        new Intent(Home.this, VideoHome.class)
+                );
+            }
+        });
+
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
     }
 
 
@@ -42,6 +98,7 @@ public class Home extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
+<<<<<<< HEAD
             case R.id.action_settings:
                 return true;
         }
@@ -97,4 +154,28 @@ public class Home extends ActionBarActivity {
         }
     }
 
+=======
+            case R.id.action_about:
+
+                /*
+                Display a dialog telling the user the version of the app.
+                 */
+                AlertDialog.Builder version =
+                        new AlertDialog.Builder(this);
+
+                try {
+                String versionName =
+                        getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+                version.setTitle("Version " +  versionName);
+                version.setMessage("The current version is: " + versionName);
+                version.show();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
 }

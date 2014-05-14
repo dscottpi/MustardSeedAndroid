@@ -1,8 +1,12 @@
 package com.java.app.mustardseed;
 
+<<<<<<< HEAD
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+=======
+import android.app.Activity;
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,18 +15,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+<<<<<<< HEAD
 public class InsertSD extends ActionBarActivity {
+=======
+public class InsertSD extends Activity {
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_sd);
 
+<<<<<<< HEAD
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+=======
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
     }
 
 
@@ -46,6 +57,7 @@ public class InsertSD extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+<<<<<<< HEAD
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -62,4 +74,6 @@ public class InsertSD extends ActionBarActivity {
         }
     }
 
+=======
+>>>>>>> 831ce17d24b66bea47d31099c0d4fb7590ac6c3c
 }
